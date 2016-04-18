@@ -1,9 +1,9 @@
-<html>
+<!DOCTYPE html>
+<html lang="pt-br">
 
 <head>
-
-<title>Teste - App Compartilhemos</title>
-
+<meta charset="utf-8">
+<title>App Compartilhemos</title>
 </head>
 
 <body>
@@ -41,16 +41,16 @@ FB.getLoginStatus(function(response) {
   }
 });
 
+// Sharing
+Fb.ui(
+ {
+  method: 'share',
+  href: 'https://developers.facebook.com/docs/'
+}, function(response){});
+
+
 
   };
-
-
-// Sharing
-//Fb.ui(
-// {
-//  method: 'share',
-//  href: 'https://developers.facebook.com/docs/'
-//}, function(response){});
 
 
   (function(d, s, id){
@@ -63,6 +63,8 @@ FB.getLoginStatus(function(response) {
 </script>
 
 <h1 id="fb-welcome"></h1>
+
+<!--  Sharing -->
 
 </body>
 </html>

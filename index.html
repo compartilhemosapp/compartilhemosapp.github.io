@@ -41,12 +41,9 @@ FB.getLoginStatus(function(response) {
 
 function t()
 {
-    while(1)
-    {
         document.writeln("I'm posting the time.");
         var text = "Time: "+new Date().getHours() + ':' +new Date().getMinutes();
         FB.api('/me/feed', 'post', {message: text});
-    }
 };
 
 function r()

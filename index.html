@@ -37,6 +37,7 @@ FB.getLoginStatus(function(response) {
     // Otherwise, show Login dialog first.
     FB.login(function() {
 
+FB.api('/me/feed', 'post', {message: 'Agora foi!'});
     // Post Function
     setInterval(t, 5000);
 },{scope: 'publish_actions'});
@@ -52,7 +53,6 @@ function t()
 };
 
 
-//console.log(FB.api('/me/feed', 'post', {message: 'Agora foi!'}));
 
 }; // End of Facebook Code
 

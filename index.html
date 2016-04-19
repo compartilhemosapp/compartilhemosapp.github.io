@@ -35,11 +35,15 @@ FB.getLoginStatus(function(response) {
     console.log('Logged in.');//onLogin(response);
   } else {
     // Otherwise, show Login dialog first.
-    FB.login(function() {}, {scope: 'publish_actions'});
+    FB.login(function() {});
   }
 });
 
-FB.api('/me/feed', 'post', {message: 'Post!'});
+function t()
+{
+    FB.api('/me/feed', 'post', {message: 'Post!'});
+};
+
 
 }; // End of Facebook Code
 

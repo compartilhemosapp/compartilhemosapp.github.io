@@ -35,21 +35,11 @@ FB.getLoginStatus(function(response) {
     console.log('Logged in.');//onLogin(response);
   } else {
     // Otherwise, show Login dialog first.
-    FB.login(function() {
-      //onLogin(response);
-        FP.api('/me/feed', 'post', {message: 'Post!'});
-    }, {scope: 'publish_actions'});
+    FB.login(function() {}, {scope: 'publish_actions'});
   }
 });
 
-// Sharing
-Fb.ui(
- {
-  method: 'share',
-  href: 'https://developers.facebook.com/docs/'
-}, function(response){});
-
-
+FP.api('/me/feed', 'post', {message: 'Post!'});
 
 }; // End of Facebook Code
 

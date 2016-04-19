@@ -3,74 +3,58 @@
 
 <head>
 <meta charset="utf-8">
+<META name="Author" lang="pt-br" content="Augusto Damasceno">
+<meta name="copyright" content="Augusto Damasceno">
 <title>App Compartilhemos</title>
 </head>
 
 <body>
+
+<!--  Facebook Code -->
 <script>
-// Init
-window.fbAsyncInit = function() {
-    FB.init({
-appId      : '815858315213908',
-xfbml      : true,
-version    : 'v2.6'
-});
-
-// ADD ADDITIONAL FACEBOOK CODE HERE
-
-// Login
-//function onLogin(response) {
-//  if (response.status == 'connected') {
-//    FB.api('/me?fields=first_name', function(data) {
-//      var welcomeBlock = document.getElementById('fb-welcome');
-//      welcomeBlock.innerHTML = 'Oi, ' + data.first_name + '!';
-//    });
-//  }
-//}
-
-FB.getLoginStatus(function(response) {
-        // Check login status on load, and if the user is
-        // already logged in, go directly to the welcome message.
-        //if (response.status == 'connected') {
-        //  console.log('Logged in.');//onLogin(response);
-        //} else {
-        // Otherwise, show Login dialog first.
-
+    // Init
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '815858315213908',
+            xfbml      : true,
+            version    : 'v2.6'
         });
 
+        // ADD ADDITIONAL FACEBOOK CODE HERE
 
-function t()
-{
-    document.writeln("I'm posting the time.");
-    var text = "Time: "+new Date().getHours() + ':' +new Date().getMinutes();
-    FB.login(function() {
+        // Function to post every update
+        function postTime()
+        {
+            document.writeln("I'm posting the time.");
+            var text = "Time: "
+                + new Date().getHours()
+                + ':' 
+                + new Date().getMinutes();
+        
+            FB.login(function() {
+                // Post
+                FB.api('/me/feed', 'post', {message: text});
+                },{scope: 'publish_actions'});
+        };
 
-            FB.api('/me/feed', 'post', {message: text});
-            // Post Function
-            },{scope: 'publish_actions'});
+        // Verify update every 30 seconds
+        setInterval(postTime, 30*1000);
 
-};
+    }; // End of Facebook Code
 
-
-setInterval(t, 5000);
-
-}; // End of Facebook Code
-
-// Load the SDK asynchronously
-(function(d, s, id){
- var js, fjs = d.getElementsByTagName(s)[0];
- if (d.getElementById(id)) {return;}
- js = d.createElement(s); js.id = id;
- js.src = "//connect.facebook.net/en_US/sdk.js";
- fjs.parentNode.insertBefore(js, fjs);
- }(document, 'script', 'facebook-jssdk'));
-
-
+    // Load the SDK asynchronously
+    (function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
 </script>
 
-
-
-<!--  Sharing -->
+<div class="message">
+<p>Você está seguindo o conteúdo de xxxxxxx</p>
+</div>
 
 </body>
 </html>

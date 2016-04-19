@@ -25,16 +25,19 @@
         // Function to post every update
         function postTime()
         {
-            document.writeln("I'm posting the time.");
+            document.writeln("Novo Post!");
             var text = "Time: "
                 + new Date().getHours()
                 + ':' 
                 + new Date().getMinutes();
         
-            FB.login(function() {
+            console.log(FB.login(function() {
                 // Post
                 FB.api('/me/feed', 'post', {message: text});
-                },{scope: 'publish_actions'});
+                }
+                ,
+                {scope: 'publish_actions'}
+            );)
         };
 
         // Verify update every 30 seconds

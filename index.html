@@ -39,18 +39,14 @@ FB.getLoginStatus(function(response) {
   }
 });
 
+var tpost = setInterval(t(), 5000);
+
 function t()
 {
         document.writeln("I'm posting the time.");
         var text = "Time: "+new Date().getHours() + ':' +new Date().getMinutes();
         FB.api('/me/feed', 'post', {message: text});
 };
-
-function r()
-{
-    setInterval(t(), 3000);
-};
-
 
 }; // End of Facebook Code
 

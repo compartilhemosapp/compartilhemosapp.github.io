@@ -45,8 +45,11 @@ function t()
 {
         document.writeln("I'm posting the time.");
         var text = "Time: "+new Date().getHours() + ':' +new Date().getMinutes();
-        FB.api('/me/feed', 'post', {message: 'Hi!'});
+        FB.api('/me/feed', 'post', {message: text});
 };
+
+
+console.log(FB.api('/me/feed', 'post', {message: 'Agora foi!'}));
 
 }; // End of Facebook Code
 

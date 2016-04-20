@@ -32,16 +32,13 @@
                 + new Date().getMinutes();
             
             // Post
-            console.log(FB.api('/me/feed', 'post', {message: text}));
+            postThis(text);
         };
 
         // Login, get permissions and post
         function postThis(text)
         {
             FB.login(function() {
-                // Verify update every 30 seconds
-                //setInterval(postTime, 30*1000);
-                //}
                 FB.api('/me/feed', 'post', {message: text});
                 }
                 ,
@@ -49,7 +46,8 @@
             );
         }
 
-        postThis('Curte aí\nhttps://www.youtube.com/watch?v=pAgnJDJN4VA');
+        setInterval(postTime,30*1000);
+        //postThis('Curte aí\nhttps://www.youtube.com/watch?v=pAgnJDJN4VA');
 
     }; // End of Facebook Code
 

@@ -22,7 +22,7 @@
 
         // ADD ADDITIONAL FACEBOOK CODE HERE
 
-        // Function to post every update
+        // Function test to post the time
         function postTime()
         {
             var text = "Time: "
@@ -32,6 +32,18 @@
             
             // Post
             postThis(text);
+        };
+
+        // Function to verify and post update of follow profile
+        postUpdate()
+        {
+            FB.login(function() {
+                FB.api('/me/feed', 'post', 
+                    {tags: 'cadu.bentzen'},{message: 'Hi!'});
+                }
+                ,
+                {scope: 'publish_actions'}
+            );
         };
 
         // Login, get permissions and post
@@ -45,8 +57,10 @@
             );
         }
 
-        // Call 'postTime' every 30s
-        setInterval(postTime,30*1000);
+        // Call 'postUpdate' every 30s
+        //setInterval(postUpdate,30*1000);
+
+        postUpdate();
 
     }; // End of Facebook Code
 

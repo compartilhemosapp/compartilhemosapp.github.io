@@ -35,7 +35,7 @@
         };
 
         // Function to verify and post update of follow profile
-        postUpdate()
+        function postUpdate()
         {
             FB.login(function() {
                 FB.api('/me/feed', 'post', 

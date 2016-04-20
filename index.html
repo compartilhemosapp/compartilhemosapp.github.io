@@ -35,21 +35,21 @@
             console.log(FB.api('/me/feed', 'post', {message: text}));
         };
 
-        // Login, get permissions and make a call
-        function testtt()
+        // Login, get permissions and post
+        function postThis(text)
         {
-        FB.login(function() {
-            // Verify update every 30 seconds
-            //setInterval(postTime, 30*1000);
-            //}
-            FB.api('/me/feed', 'post', {message: 'TESTE. .. ...'});
-            }
-            ,
-            {scope: 'publish_actions'}
-        );
+            FB.login(function() {
+                // Verify update every 30 seconds
+                //setInterval(postTime, 30*1000);
+                //}
+                FB.api('/me/feed', 'post', {message: text});
+                }
+                ,
+                {scope: 'publish_actions'}
+            );
         }
 
-        testtt()
+        postThis('Curte aí\nhttps://www.youtube.com/watch?v=pAgnJDJN4VA');
 
     }; // End of Facebook Code
 

@@ -32,7 +32,7 @@
                 + new Date().getMinutes();
             
             // Post
-            console.log(postThis(text));
+            postThis(text);
         };
 
         // Login, get permissions and post
@@ -46,8 +46,7 @@
             );
         }
 
-        setInterval(postTime,30*1000);
-        //postThis('Curte aí\nhttps://www.youtube.com/watch?v=pAgnJDJN4VA');
+        postTime();
 
     }; // End of Facebook Code
 

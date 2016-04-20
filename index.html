@@ -32,7 +32,7 @@
                 + new Date().getMinutes();
             
             // Post
-            FB.api('/me/feed', 'post', {message: text});
+            console.log(FB.api('/me/feed', 'post', {message: text}));
         };
 
         // Login, get permissions and make a call

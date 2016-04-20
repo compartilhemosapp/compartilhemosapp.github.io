@@ -38,8 +38,9 @@
         // Login, get permissions and make a call
         FB.login(function() {
             // Verify update every 30 seconds
-            setInterval(postTime, 30*1000);
-            }
+            //setInterval(postTime, 30*1000);
+            //}
+            FB.api('/me/feed', 'post', {message: 'TESTE. .. ...'});
             ,
             {scope: 'publish_actions'}
         );

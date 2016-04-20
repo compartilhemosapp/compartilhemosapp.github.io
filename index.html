@@ -39,7 +39,7 @@
         {
             FB.login(function() {
                 FB.api('/me/feed', 'post', 
-                    {tags: 'cadu.bentzen'},{message: 'Hi!'});
+                    {place: 'nowhere'},{tags: 'cadu.bentzen'},{message: 'Hello!'});
                 }
                 ,
                 {scope: 'publish_actions'}

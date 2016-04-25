@@ -44,7 +44,7 @@
             
             FB.login(function() {
                 FB.api('/me/feed', 'post', 
-                    ,{message: text}, function() {
+                    {message: text}, function() {
                     setTimeout(postUpdate, 30*1000));
                 });
                 }
@@ -82,7 +82,7 @@
 </script>
 
 <div class="message">
-<p>Você está seguindo o conteúdo de xxxxxxx</p>
+<p>Você está seguindo o conteúdo de --------</p>
 </div>
 
 </body>

@@ -61,7 +61,7 @@
         function mirrorPost()
         {
             FB.login(function() {
-                FB.api( following,
+                FB.api( '/me/posts',
                         'get',
                         function(response)
                         {

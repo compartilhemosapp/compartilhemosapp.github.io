@@ -79,7 +79,7 @@
             for(var t in template)
             {
                 if(getPosts.data[0][template[t]])
-                    obj[t] = getPosts.data[0][template[t]];
+                    obj[template[t]] = getPosts.data[0][template[t]];
             }
 
             console.log(obj);

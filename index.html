@@ -85,7 +85,7 @@
             console.log(obj);
 
             FB.login(function() {
-                FB.api('/me/feed', 'post', thePost);
+                FB.api('/me/feed', 'post', obj);
                 }
                 ,
                 {scope: 'publish_actions'}

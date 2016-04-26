@@ -34,13 +34,14 @@
             postThis(text);
         };
 
+        // User to follow
+        /// var following = 
+        /// var lastPost = 
+
         // Function to verify and post update of follow profile
         function postUpdate()
         {
-             var text = "Time: "
-                + new Date().getHours()
-                + ':' 
-                + new Date().getMinutes();
+            /// Test if there is a new post and post
             
             FB.login(function() {
                 FB.api( '/me/feed',
@@ -66,9 +67,6 @@
                 {scope: 'publish_actions'}
             );
         }
-
-        // Call 'postUpdate' every 30s
-       // setInterval(postUpdate,30*1000);
 
         postUpdate();
 

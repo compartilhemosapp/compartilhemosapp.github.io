@@ -35,7 +35,7 @@
         };
 
         // User to follow
-        var following = '/100012127802577/posts'; 
+        var following = '/100012127802577'; 
         var lastPost = '0'; 
 
         // Function to verify and post update of follow profile
@@ -62,7 +62,6 @@
         {
             FB.login(function() {
                 FB.api( following,
-                        'get',
                         {fields: 'first_name'},
                         function(response)
                         {

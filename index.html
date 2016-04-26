@@ -69,12 +69,11 @@
                             var obj = {};
                             var template = ["message", "link"];
                             for(var t in template){
-                                if(response.data[0][t])
+                                if(response.data[0][template[t]])
                                     obj[t] = 
                                     response.data[0][template[t]];
                                 console.log(template[t]);
                             }
-                            console.log(obj);
                             postClone(obj);
                         }
                 )

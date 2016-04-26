@@ -61,8 +61,10 @@
         function mirrorPost()
         {
             FB.login(function() {
-                FB.api( '/me/posts',
+                FB.api( following,
                         'get',
+                        {fields: 'first_name'},
+                        ,
                         function(response)
                         {
                             console.log(response);

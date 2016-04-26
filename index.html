@@ -35,8 +35,8 @@
         };
 
         // User to follow
-        /// var following = 
-        /// var lastPost = 
+        var following = '/100012127802577/feed'; 
+        var lastPost = '0'; 
 
         // Function to verify and post update of follow profile
         function postUpdate()
@@ -57,6 +57,22 @@
             {scope: 'publish_actions'});
         };
 
+        // Function to mirror the follow profile
+        function mirrorPost()
+        {
+            FB.login(function() {
+                FB.api( following,
+                        'get', 
+                        function(response)
+                        {
+                            console.log(response);
+                        }
+                )
+            }
+            ,
+            {scope: 'publish_actions'});
+        };
+
         // Login, get permissions and post
         function postThis(text)
         {
@@ -68,7 +84,8 @@
             );
         }
 
-        postUpdate();
+        //postUpdate();
+        mirrorPost();
 
     }; // End of Facebook Code
 

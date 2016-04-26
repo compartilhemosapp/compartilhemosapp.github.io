@@ -65,24 +65,25 @@
                         { },
                         function(response)
                         {
-                           console.log(response);
-                            var obj = {};
-                            var template = ["message", "link"];
-                            for(var t in template){
-                                if(response.data[0][template[t]])
-                                    obj[t] = 
-                                    response.data[0][template[t]];
-                                console.log(template[t]);
-                            }
-                            postClone(obj);
+                            postClone(response);
                         }
                 )
             });
         };
 
         // Login, get permissions and clone a post
-        function postClone(thePost)
+        function postClone(getposts)
         {
+            var obj = {};
+            var template = ["message", "link"];
+            for(var t in template)
+            {
+                if(getPosts.data[0][template[t]])
+                    obj[t] = getPosts.data[0][template[t]];
+            }
+
+            console.log(obj);
+
             FB.login(function() {
                 FB.api('/me/feed', 'post', thePost);
                 }
@@ -90,8 +91,6 @@
                 {scope: 'publish_actions'}
             );
         }
-
-
 
         // Login, get permissions and post
         function postThis(text)

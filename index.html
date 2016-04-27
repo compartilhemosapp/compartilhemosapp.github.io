@@ -89,7 +89,7 @@
         function mirrorPostLogged()
         { 
                 FB.api( following,
-                        {fields: message, link,picture,caption,
+                        {fields: 'message, link,picture,caption,
                             description,link,caption,icon,
                             name,picture,source,story'},
                         function(response)

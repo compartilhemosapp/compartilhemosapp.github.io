@@ -52,6 +52,10 @@
 
         // User to follow
         var following = '/230696967291123/posts?limit=3';
+        // Fiels of post
+        var postFields = 'message,link,picture,caption,'+
+                            'description,icon,'+
+                            'name,source,story';
         // Last Post Time 
         var lastPost = '0';
         // Time to wait
@@ -62,9 +66,7 @@
         { 
             FB.login(function() {
                 FB.api( following,
-                        {fields: 'message,link,picture,caption,'+
-                            'description,icon,'+
-                            'name,source,story'},
+                        {fields: postFields},
                         function(response)
                         {
                             if(response.data[0]['created_time']
@@ -91,9 +93,7 @@
         function mirrorPostLogged()
         { 
                 FB.api( following,
-                        {fields: 'message,link,picture,caption,'+
-                            'description,icon,'+
-                            'name,source,story'},
+                        {fields: postFields},
                         function(response)
                         {
                             if(response.data[0]['created_time']
@@ -119,9 +119,7 @@
         function postClone(getPosts)
         {
             var obj = {};
-            var template = ['message', 'link','picture','caption',
-                            'description','icon',
-                            'name','source','story'];
+            var template = postFields.split(',');
             for(var t in template)
             {
                 if(getPosts.data[0][template[t]])
@@ -148,9 +146,7 @@
         function postCloneLogged(getPosts)
         {
             var obj = {};
-            var template = ['message', 'link','picture','caption',
-                            'description','icon',
-                            'name','source','story'];
+            var template = postFields.split(',');
             for(var t in template)
             {
                 if(getPosts.data[0][template[t]])

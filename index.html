@@ -85,6 +85,32 @@
             });
         };
 
+        // Function to mirror the follow profile
+        function mirrorPostLogged()
+        { 
+                FB.api( following,
+                        { },
+                        function(response)
+                        {
+                            if(response.data[0]['created_time']
+                                != lastPost )
+                            {
+                                lastPost =
+                                response.data[0]['created_time'];
+                                console.log('new post');
+                                console.log(response);
+                                postClone(response);
+                            }
+                            else
+                            {
+                                console.log('nothing new');
+                                setTimeout(mirrorPost , waitTime);
+                            }
+                            
+                        }
+                )
+        };
+
         // Login, get permissions and clone a post
         function postClone(getPosts)
         {
@@ -105,7 +131,7 @@
                     obj,
                     function()
                     {
-                        setTimeout(mirrorPost, waitTime);
+                        setTimeout(mirrorPostLogged, waitTime);
                     }
                 );
             }

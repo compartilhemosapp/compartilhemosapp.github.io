@@ -20,8 +20,6 @@
             version    : 'v2.6'
         });
 
-        // ADD ADDITIONAL FACEBOOK CODE HERE
-
         // Function test to post the time
         function postTime()
         {
@@ -34,15 +32,9 @@
             postThis(text);
         };
 
-        // User to follow
-        var following = '/SintonizeMCTI/feed?limit=3'; 
-        var lastPost = '0'; 
-
         // Function to verify and post update of follow profile
         function postUpdate()
         {
-            /// Test if there is a new post and post
-            
             FB.login(function() {
                 FB.api( '/me/feed',
                         'post', 
@@ -57,10 +49,17 @@
             {scope: 'publish_actions'});
         };
 
+
+        // User to follow
+        var following = '/SintonizeMCTI/feed?limit=3';
+        // Last Post Time 
+        var lastPost = '0';
+        // Time to wait
+        var waitTime = 30*1000; 
+
         // Function to mirror the follow profile
-        function mirrorPost()
-        {
-        
+        function mirrorPost(acessToken)
+        { 
             FB.login(function() {
                 FB.api( following,
                         { },
@@ -77,9 +76,10 @@
                             }
                             else
                             {
-                                console.log('no');
+                                console.log('nothing new');
+                                setTimeout(mirrorPost , waitTime);
                             }
-                            setTimeout(mirrorPost , 30*1000);
+                            
                         }
                 )
             });
@@ -97,10 +97,18 @@
             }
 
             FB.login(function() {
-                FB.api('/me/feed', 'post', obj);
-                }
-                ,
-                {scope: 'publish_actions'}
+                FB.api(
+                    '/me/feed',
+                    'post',
+                    obj,
+                    function()
+                    {
+                        setTimeout(mirrorPost, waitTime);
+                    }
+                );
+            }
+            ,
+            {scope: 'publish_actions'}
             );
         }
 

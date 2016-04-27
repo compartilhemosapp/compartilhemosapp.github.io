@@ -65,11 +65,11 @@
                         { },
                         function(response)
                         {
-                            if(response[0][created_time]
+                            if(response[0]['created_time']
                                 != lastPost )
                             {
                                 lastPost =
-                                    response[0][created_time];
+                                    response[0]['created_time'];
                                 console.log('new post');
                                 postClone(response);
                             }

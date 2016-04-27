@@ -55,7 +55,7 @@
         // Last Post Time 
         var lastPost = '0';
         // Time to wait
-        var waitTime = 10*1000; 
+        var waitTime = 3*1000; 
 
         // Function to mirror the follow profile
         function mirrorPost()
@@ -118,8 +118,8 @@
         {
             var obj = {};
             var template = ['message', 'link','picture','caption',
-                            'description','link','caption','icon',
-                            'name','picture','source','story'];
+                            'description','icon',
+                            'name','source','story'];
             for(var t in template)
             {
                 if(getPosts.data[0][template[t]])

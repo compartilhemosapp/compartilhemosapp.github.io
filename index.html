@@ -51,11 +51,11 @@
 
 
         // User to follow
-        var following = '/SintonizeMCTI/feed?limit=3';
+        var following = '/230696967291123/feed?limit=3';
         // Last Post Time 
         var lastPost = '0';
         // Time to wait
-        var waitTime = 3*1000; 
+        var waitTime = 10*1000; 
 
         // Function to mirror the follow profile
         function mirrorPost()
@@ -140,7 +140,7 @@
             );
         }
 
-        // Login, get permissions and clone a post
+        // Clone a post
         function postCloneLogged(getPosts)
         {
             var obj = {};

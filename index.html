@@ -51,7 +51,7 @@
 
 
         // User to follow
-        var following = '/230696967291123/feed?limit=3';
+        var following = '/230696967291123/posts?limit=3';
         // Last Post Time 
         var lastPost = '0';
         // Time to wait
@@ -89,7 +89,9 @@
         function mirrorPostLogged()
         { 
                 FB.api( following,
-                        { },
+                        {fields: 'message', 'link','picture','caption',
+                            'description','link','caption','icon',
+                            'name','picture','source','story']},
                         function(response)
                         {
                             if(response.data[0]['created_time']

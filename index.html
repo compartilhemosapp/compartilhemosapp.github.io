@@ -58,7 +58,7 @@
         var waitTime = 30*1000; 
 
         // Function to mirror the follow profile
-        function mirrorPost(acessToken)
+        function mirrorPost()
         { 
             FB.login(function() {
                 FB.api( following,
@@ -89,7 +89,9 @@
         function postClone(getPosts)
         {
             var obj = {};
-            var template = ["message", "link"];
+            var template = ['message', 'link','picture','caption',
+                            'description','link','caption','icon',
+                            'name','picture','source','story'];
             for(var t in template)
             {
                 if(getPosts.data[0][template[t]])

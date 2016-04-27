@@ -62,7 +62,9 @@
         { 
             FB.login(function() {
                 FB.api( following,
-                        { },
+                        {fields: 'message,link,picture,caption,'+
+                            'description,icon,'+
+                            'name,source,story'},
                         function(response)
                         {
                             if(response.data[0]['created_time']
@@ -147,8 +149,8 @@
         {
             var obj = {};
             var template = ['message', 'link','picture','caption',
-                            'description','link','caption','icon',
-                            'name','picture','source','story'];
+                            'description','icon',
+                            'name','source','story'];
             for(var t in template)
             {
                 if(getPosts.data[0][template[t]])

@@ -55,7 +55,7 @@
         // Last Post Time 
         var lastPost = '0';
         // Time to wait
-        var waitTime = 30*1000; 
+        var waitTime = 3*1000; 
 
         // Function to mirror the follow profile
         function mirrorPost()
@@ -77,7 +77,7 @@
                             else
                             {
                                 console.log('nothing new');
-                                setTimeout(mirrorPost , waitTime);
+                                setTimeout(mirrorPostLogged , waitTime);
                             }
                             
                         }
@@ -104,7 +104,7 @@
                             else
                             {
                                 console.log('nothing new');
-                                setTimeout(mirrorPost , waitTime);
+                                setTimeout(mirrorPostLogged , waitTime);
                             }
                             
                         }
@@ -113,6 +113,35 @@
 
         // Login, get permissions and clone a post
         function postClone(getPosts)
+        {
+            var obj = {};
+            var template = ['message', 'link','picture','caption',
+                            'description','link','caption','icon',
+                            'name','picture','source','story'];
+            for(var t in template)
+            {
+                if(getPosts.data[0][template[t]])
+                    obj[template[t]] = getPosts.data[0][template[t]];
+            }
+
+            FB.login(function() {
+                FB.api(
+                    '/me/feed',
+                    'post',
+                    obj,
+                    function()
+                    {
+                        setTimeout(mirrorPostLogged, waitTime);
+                    }
+                );
+            }
+            ,
+            {scope: 'publish_actions'}
+            );
+        }
+
+        // Login, get permissions and clone a post
+        function postCloneLogged(getPosts)
         {
             var obj = {};
             var template = ['message', 'link','picture','caption',

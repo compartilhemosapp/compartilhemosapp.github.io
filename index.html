@@ -91,7 +91,7 @@
                 FB.api( following,
                         {fields: 'message', 'link','picture','caption',
                             'description','link','caption','icon',
-                            'name','picture','source','story']},
+                            'name','picture','source','story'},
                         function(response)
                         {
                             if(response.data[0]['created_time']

@@ -60,6 +60,30 @@
         // Function to mirror the follow profile
         function mirrorPost()
         {
+            if (response.status === 'connected')
+            {
+             FB.api( following,
+                        { },
+                        function(response)
+                        {
+                            if(response.data[0]['created_time']
+                                != lastPost )
+                            {
+                                lastPost =
+                                    response.data[0]['created_time'];
+                                console.log('new post');
+                                postClone(response);
+                            }
+                            else
+                            {
+                                console.log('no');
+                            }
+                            setTimeout(mirrorPost , 30*1000);
+                        }
+                )
+            }
+            else
+            {
             FB.login(function() {
                 FB.api( following,
                         { },
@@ -81,6 +105,7 @@
                         }
                 )
             });
+            }
         };
 
         // Login, get permissions and clone a post

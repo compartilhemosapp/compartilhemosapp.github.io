@@ -60,7 +60,7 @@
         // Function to mirror the follow profile
         function mirrorPost()
         {
-            FB.login(function() {
+            //FB.login(function() {
                 FB.api( following,
                         { },
                         function(response)
@@ -80,7 +80,7 @@
                             setTimeout(mirrorPost , 30*1000);
                         }
                 )
-            });
+            //});
         };
 
         // Login, get permissions and clone a post

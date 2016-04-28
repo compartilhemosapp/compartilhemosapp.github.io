@@ -192,6 +192,7 @@
         // Function to print friends in a friendlist
         function printFriends(listID)
         {
+            console.log(listID);
             FB.api( '/' + listID + '/members',
                 function(response)
                 {

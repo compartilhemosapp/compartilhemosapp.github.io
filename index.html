@@ -172,7 +172,7 @@
         function getFriends()
         {
              FB.login(function() {
-                FB.api( /me/friendlists,
+                FB.api( '/me/friendlists',
                         function(response)
                         {
                             console.log(response); 

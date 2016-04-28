@@ -179,8 +179,6 @@
                             console.log(response);
                             for (var i = 0; i < response.data.length; i++)
                             {
-                                console.log(i);
-                                console.log(response.data[i].id);
                                 printFriends(response.data[i].id); 
                             }
                         }
@@ -195,7 +193,6 @@
         function printFriends(listID)
         {
             FB.api( '/' + listID + '/members',
-                {fields: 'data,page,summary'},
                 function(response)
                 {
                     console.log(response);

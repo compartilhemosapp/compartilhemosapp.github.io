@@ -173,6 +173,7 @@
         {
              FB.login(function() {
                 FB.api( '/me/friendlists',
+                        {fields: 'id,name'},
                         function(response)
                         {
                             console.log(response); 
@@ -182,7 +183,6 @@
             ,
             {scope: 'publish_actions,user_friends,read_custom_friendlists'}
             );
-
         }
 
         //mirrorPost();

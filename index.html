@@ -126,6 +126,8 @@
                     obj[template[t]] = getPosts.data[0][template[t]];
             }
 
+            console.log(obj);
+
             FB.login(function() {
                 FB.api(
                     '/me/feed',

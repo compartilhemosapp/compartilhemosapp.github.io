@@ -33,7 +33,7 @@
         };
 
         // User to follow
-        var following = '/230696967291123/posts?limit=3';
+        var following = '/1550431118595121/posts?limit=1';
         // Fiels of post
         var postFields = 'message,link,picture,caption,'+
                             'description,icon,'+
@@ -83,13 +83,13 @@
                             {
                                 lastPost =
                                 response.data[0]['created_time'];
-                                console.log('new post');
-                                console.log(response);
+                                //console.log('new post');
+                                //console.log(response);
                                 postClone(response);
                             }
                             else
                             {
-                                console.log('nothing new');
+                                //console.log('nothing new');
                                 setTimeout(mirrorPostLogged , waitTime);
                             }
                             
@@ -108,7 +108,7 @@
                     obj[template[t]] = getPosts.data[0][template[t]];
             }
 
-            console.log(obj);
+            //console.log(obj);
 
             FB.login(function() {
                 FB.api(
@@ -137,7 +137,7 @@
                     obj[template[t]] = getPosts.data[0][template[t]];
             }
             
-            console.log(obj);
+            //console.log(obj);
 
             FB.login(function() {
                 FB.api(

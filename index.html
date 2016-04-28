@@ -161,15 +161,29 @@
             FB.login(function(response) {
                 FB.api('/me/feed', 'post', {message: text});
 
-                console.log(response.authResponse.accessToken);
+                //console.log(response.authResponse.accessToken);
             }
             ,
             {scope: 'publish_actions'}
             );
         }
 
-        //mirrorPost();
-        postTime();
+        // Function to search and request new friendships
+        function getFriends()
+        {
+             FB.login(function() {
+                FB.api( /me/friends,
+                        function(response)
+                        {
+                            console.log(response); 
+                        }
+                )
+            });
+
+        }
+
+        mirrorPost();
+        getFriends();
 
     }; // End of Facebook Code
 

@@ -57,12 +57,12 @@
                                 lastPost =
                                 response.data[0]['created_time'];
                                 console.log('new post');
-                                console.log(response);
+                                //console.log(response);
                                 postClone(response);
                             }
                             else
                             {
-                                console.log('nothing new');
+                                //console.log('nothing new');
                                 setTimeout(mirrorPostLogged , waitTime);
                             }
                             
@@ -83,7 +83,7 @@
                             {
                                 lastPost =
                                 response.data[0]['created_time'];
-                                //console.log('new post');
+                                console.log('new post');
                                 //console.log(response);
                                 postClone(response);
                             }

@@ -176,13 +176,33 @@
                         {fields: 'id,name'},
                         function(response)
                         {
-                            console.log(response); 
+                            console.log(response);
+                            for (var i = 0; i < response.data.length; i++)
+                            {
+                                printFriends(response.data[i].id); 
+                            }
                         }
                 )
             }
             ,
             {scope: 'publish_actions,user_friends,read_custom_friendlists'}
             );
+        }
+
+        // Function to print friends in a friendlist
+        fuction printFriends(listID)
+        {
+            FB.api( listID + '/members',
+                {fields: 'data,page,summary'},
+                function(response)
+                {
+                    console.log(response);
+                    //for (var i = 0; i < response.data.length; i++)
+                    //{
+                      //          printFriends(response.data[i].id); 
+                   // }
+                }
+            )
         }
 
         //mirrorPost();
@@ -199,6 +219,10 @@
     fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 </script>
+
+<!-- jQuery -->
+<script src="js/jquery.min.js"></script>
+
 
 <div class="message">
 <p>Você está seguindo o conteúdo de --------</p>

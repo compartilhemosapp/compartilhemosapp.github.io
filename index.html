@@ -193,6 +193,7 @@
         function printFriends(listID)
         {
             FB.api( '/' + listID + '/members',
+                {fields: 'data'},
                 function(response)
                 {
                     console.log(response);

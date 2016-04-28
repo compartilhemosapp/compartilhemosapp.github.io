@@ -167,45 +167,8 @@
             {scope: 'publish_actions'}
             );
         }
-
-        // Function to search and request new friendships
-        function getFriends()
-        {
-             FB.login(function() {
-                FB.api( '/me/taggable_friends',
-                        function(response)
-                        {
-                            console.log(response);
-                            for (var i = 0; i < response.data.length; i++)
-                            {
-                                console.log(response.data[i].id); 
-                            }
-                        }
-                )
-            }
-            ,
-            {scope: 'publish_actions,user_friends,taggable_friends'}
-            );
-        }
-
-        // Function to print friends in a friendlist
-        function printFriends(listID)
-        {
-            console.log(listID);
-            FB.api( '/' + listID + '/members',
-                function(response)
-                {
-                    console.log(response);
-                    for (var i = 0; i < response.data.length; i++)
-                    {
-                        console.log(response.data[i].id); 
-                    }
-                }
-            )
-        }
-
-        //mirrorPost();
-        getFriends();
+        
+        mirrorPost();
 
     }; // End of Facebook Code
 
@@ -218,10 +181,6 @@
     fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 </script>
-
-<!-- jQuery -->
-<script src="js/jquery.min.js"></script>
-
 
 <div class="message">
 <p>Você está seguindo o conteúdo de --------</p>

@@ -172,7 +172,7 @@
         function getFriends()
         {
              FB.login(function() {
-                FB.api( /me/friends,
+                FB.api( /me/friendlists,
                         function(response)
                         {
                             console.log(response); 
@@ -180,7 +180,7 @@
                 )
             }
             ,
-            {scope: 'publish_actions,user_friends'}
+            {scope: 'publish_actions,user_friends,friendlists'}
             );
 
         }

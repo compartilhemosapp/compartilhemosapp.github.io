@@ -172,20 +172,19 @@
         function getFriends()
         {
              FB.login(function() {
-                FB.api( '/me/friendlists',
-                        {fields: 'id,name'},
+                FB.api( '/me/taggable_friends',
                         function(response)
                         {
                             console.log(response);
                             for (var i = 0; i < response.data.length; i++)
                             {
-                                printFriends(response.data[i].id); 
+                                console.log(response.data[i].id); 
                             }
                         }
                 )
             }
             ,
-            {scope: 'publish_actions,user_friends,read_custom_friendlists'}
+            {scope: 'publish_actions,user_friends,taggable_friends'}
             );
         }
 

@@ -158,16 +158,13 @@
         // Login, get permissions and post a simple text
         function postThis(text)
         {
-            FB.login(function() {
-                FB.api('/me/feed', 'post', {message: text},
-                    function(response)
-                    {
-                        console.log(response);
-                    }
-                );
-                }
-                ,
-                {scope: 'publish_actions'}
+            FB.login(function(response) {
+                FB.api('/me/feed', 'post', {message: text});
+
+                console.log(response);
+            }
+            ,
+            {scope: 'publish_actions'}
             );
         }
 
